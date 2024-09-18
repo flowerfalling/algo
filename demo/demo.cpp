@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 
-// using namespace std;
+using namespace std;
 
 int main() {
-    std::string name = "John";
-    std::cout << "Hello, " << name << std::endl;
+    int i = 2;
+    printf("%d %d\n", i * 100, i++);
+    printf("%d %d\n", i++, i * 100);
 }
