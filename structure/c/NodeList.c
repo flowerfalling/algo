@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef int T;
 
@@ -18,13 +19,13 @@ void initNodeList(Node head) {
 }
 
 
-_Bool insertNodeList(Node head, T element, int index) {
+bool insertNodeList(Node head, T element, int index) {
     if (index < 0) return 0;
     while (index--) {
         head = head->next;
         if (head == NULL) return 0;
     }
-    Node node = malloc(sizeof(struct ListNode));
+    Node node = (Node)malloc(sizeof(struct ListNode));
     if (node == NULL) return 0;
     node->element = element;
     node->next = head->next;
@@ -33,7 +34,7 @@ _Bool insertNodeList(Node head, T element, int index) {
 }
 
 
-_Bool deleteNodeList(Node head, int index) {
+bool deleteNodeList(Node head, int index) {
     if (index < 0) return 0;
     while (index--) {
         head = head->next;

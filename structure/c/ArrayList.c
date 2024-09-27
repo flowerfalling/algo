@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef int T;
 
@@ -14,8 +15,8 @@ struct List {
 typedef struct List * ArrayList;
 
 
-_Bool initArrayList(ArrayList list) {
-    list->array = malloc(sizeof(T) * 10);
+bool initArrayList(ArrayList list) {
+    list->array = (T*)malloc(sizeof(T) * 10);
     if (list->array == NULL) return 0;
     list->capacity = 10;
     list->size = 0;
@@ -23,11 +24,11 @@ _Bool initArrayList(ArrayList list) {
 }
 
 
-_Bool insertArrayList(ArrayList list, T element, int index) {
+bool insertArrayList(ArrayList list, T element, int index) {
     if (index < 0 || index > list->size) return 0;
     if (list->size == list->capacity) {
         int new_capacity = list->capacity + (list->capacity >> 1);
-        T * new_array = realloc(list->array, sizeof(T) * new_capacity);
+        T * new_array = (T*)realloc(list->array, sizeof(T) * new_capacity);
         if (new_array == NULL) return 0;
         list->array = new_array;
         list->capacity = new_capacity; 
@@ -40,7 +41,7 @@ _Bool insertArrayList(ArrayList list, T element, int index) {
 }
 
 
-_Bool deleteArrayList(ArrayList list, int index) {
+bool deleteArrayList(ArrayList list, int index) {
     if (index < 0 || index > list->size - 1) return 0;
     for (int i = index; i < list->size - 1; i++)
         list->array[i] = list->array[i + 1];
