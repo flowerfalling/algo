@@ -5,22 +5,11 @@ using namespace std;
 int main()
 {
     int c;
-    string out = "";
+    string out[4] = {
+        "huan ying ben ke xin sheng ru xue",
+        "huan ying hui xiao",
+        "huan ying yan jiu sheng xin sheng ru xue",
+        "huan ying hui xiao"};
     cin >> c;
-    switch (c)
-    {
-    case 1:
-        out = "huan ying ben ke xin sheng ru xue";
-        break;
-    case 2:
-        out = "huan ying hui xiao";
-        break;
-    case 3:
-        out = "huan ying yan jiu sheng xin sheng ru xue";
-        break;
-    case 4:
-        out = "huan ying hui xiao";
-        break;
-    }
-    cout << out << endl;
+    cout << out[c - 1] << endl;
 }

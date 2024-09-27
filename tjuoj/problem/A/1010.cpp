@@ -8,16 +8,10 @@ int main()
     cin >> a >> b;
     string s;
     if (a > b)
-    {
         s = ">";
-    }
     else if (a < b)
-    {
         s = "<";
-    }
     else
-    {
         s = "==";
-    }
     printf("a %s b", s.c_str());
 }
